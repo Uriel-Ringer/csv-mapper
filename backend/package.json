@@ -1,0 +1,30 @@
+{
+  "name": "csv-mapper-backend",
+  "version": "1.0.0",
+  "description": "AI-powered CSV mapping backend for glasses supplier data",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": [
+    "csv",
+    "mapping",
+    "openai",
+    "glasses"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "adm-zip": "^0.5.16",
+    "axios": "^1.13.2",
+    "cors": "^2.8.5",
+    "csv-parser": "^3.0.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "multer": "^1.4.5-lts.1",
+    "openai": "^4.24.1",
+    "uuid": "^9.0.1"
+  }
+}

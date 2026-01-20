@@ -1,0 +1,20 @@
+{
+    "REFERENCE": "reference",
+    "EAN": "ena",
+    "FRAME COLOR": "color",
+    "SIZE": {
+        "lens": "lensDimensions",
+        "temple": "templeDimensions"
+    },
+    "NAME": "name",
+    "DESCRIPTION": "description",
+    "CHARACTERISTICS": "characteristics",
+    "POLARIZED": "polarized",
+    "COMPOSITION": "composition",
+    "CUSTOMS CODE": "customsCode",
+    "LINKS": "link",
+    "PVP": "pvp",
+    "GoHub price": "wholesalePrice",
+    "quantity": "quantity",
+    "total": "total"
+}
