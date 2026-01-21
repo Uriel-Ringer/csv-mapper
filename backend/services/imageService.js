@@ -11,12 +11,6 @@ const __dirname = path.dirname(__filename);
 // תיקיית Downloads של המשתמש
 const DOWNLOADS_DIR = path.join(os.homedir(), 'Downloads', 'product-images');
 
-/**
- * Download and extract images from Dropbox link
- * @param {string} dropboxLink - Dropbox share link
- * @param {string} reference - Product reference (e.g., "8785.1")
- * @returns {Promise<string>} - Full path to the first image
- */
 export async function downloadAndExtractImages(dropboxLink, reference) {
   if (!dropboxLink || typeof dropboxLink !== 'string') {
     console.log(`⚠️  No valid link for ${reference}`);
@@ -52,7 +46,7 @@ export async function downloadAndExtractImages(dropboxLink, reference) {
 
     const contentType = response.headers['content-type'];
     
-    // Check if it's a ZIP file
+
     if (contentType?.includes('zip') || directLink.endsWith('.zip')) {
       console.log(`📦 Extracting ZIP for ${reference}...`);
       
@@ -76,11 +70,14 @@ export async function downloadAndExtractImages(dropboxLink, reference) {
       console.log(`✅ Downloaded image for ${reference}`);
     }
 
-    // Find all images in folder
     const files = fs.readdirSync(productFolder);
     const imageFiles = files.filter(f => /\.(jpg|jpeg|png|gif|webp)$/i.test(f));
-    
-    // Return array of full paths (up to 3 images)
+
+    // TODO: should clerify with Gohub how to handle no images
+    if (imageFiles.length === 0) {
+      console.warn(`⚠️  No images found in folder for ${reference}`);
+    }
+   
     const imagePaths = imageFiles.slice(0, 3).map(f => path.join(productFolder, f));
     
     if (imagePaths.length > 0) {

@@ -2,11 +2,7 @@ import csvParser from 'csv-parser';
 import { Readable } from 'stream';
 import XLSX from 'xlsx';
 
-/**
- * Convert Excel file to CSV string
- * @param {Buffer} buffer - Excel file buffer
- * @returns {string} - CSV string
- */
+
 export function excelToCSV(buffer) {
   const workbook = XLSX.read(buffer, { type: 'buffer' });
   const firstSheet = workbook.Sheets[workbook.SheetNames[0]];

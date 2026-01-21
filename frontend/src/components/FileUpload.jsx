@@ -11,7 +11,9 @@ function FileUpload({ onFileSelect, isProcessing }) {
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
     accept: {
-      'text/csv': ['.csv']
+      'text/csv': ['.csv'],
+      'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet': ['.xlsx'],
+      'application/vnd.ms-excel': ['.xls']
     },
     multiple: false,
     disabled: isProcessing
@@ -24,11 +26,11 @@ function FileUpload({ onFileSelect, isProcessing }) {
     >
       <input {...getInputProps()} />
       <div className="upload-icon">📁</div>
-      <h2>Upload Supplier CSV</h2>
+      <h2>Upload Supplier File</h2>
       <p>
         {isDragActive
-          ? 'Drop the CSV file here...'
-          : 'Drag & drop a CSV file here, or click to select'}
+          ? 'Drop the file here...'
+          : 'Drag & drop a CSV or Excel file here, or click to select'}
       </p>
       <button className="btn btn-primary" disabled={isProcessing}>
         {isProcessing ? 'Uploading...' : 'Select File'}

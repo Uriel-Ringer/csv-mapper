@@ -89,6 +89,7 @@ IMPORTANT:
 
     return result.results;
   } catch (error) {
+    // TODO: catch format Error
     console.error('OpenAI API Error:', error);
     throw new Error(`Failed to infer fields: ${error.message}`);
   }

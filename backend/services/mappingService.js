@@ -22,39 +22,36 @@ export async function mapToOutputFormat(standardizedRows) {
     // Download images from Dropbox and get local paths (array)
     const imagePaths = await processImageDownload(row.LINKS, row.REFERENCE);
     
-    const frameCategory = row.polarized === 'Yes' ? 'Sunglasses' : 'Optical';
+    const frameCategory = row.POLARIZED === 'Yes' ? 'Sunglasses' : 'Optical';
     
     const newRowOutputFormat = {
       'Brand': ai.brand ,
+      'Frame category': frameCategory,
+      'SKU': row.REFERENCE || '',
+      'Description': ai.description ,
+      'Collection': ai.collection,
       'Gender': ai.gender ,
       'Frame shape': ai.frameShape,
-      'Collection': ai.collection,
-      'Description': ai.description ,
-      'Color description': ai.colorDescription,
-      'Season': ai.season ,
-      'Rim type': ai.rimType ,
-      'Hinge type': ai.hingeType ,
+      'Frame material': ai.frameMaterial,
+      'Frame type': 'Full-rimmed',
       'Color': ai.color,
-      
-      'SKU': row.REFERENCE || '',
-      'UPC': row.EAN || '',
-      'Price': row['GoHub price'] || '',
-      'Recommendaed Price': row.PVP || '',
-      'Image1': imagePaths[0] || '',
-      'Image2': imagePaths[1] || '',
-      'Image3': imagePaths[2] || '',
-      'Manufacturer model #': ai.ManufacturerModel,
-      
+      'Color description': ai.colorDescription,
       'Lens width': ai.lensWidth,
       'Bridge width': ai.bridgeWidth,
       'Temple length': ai.templeLength,
       'Lens height': ai.lensHeight,
-      
-      'Frame material': ai.frameMaterial,
-      'Frame category': frameCategory,
-      'Frame type': 'Full-rimmed',
+      'Rim type': ai.rimType ,
+      'Hinge type': ai.hingeType ,
+      'Manufacturer model #': ai.ManufacturerModel,
+      'UPC': row.EAN || '',
+      'Season': ai.season ,
       'Weight': "--",
-      'Processing days': "--"
+      'Price': row['GoHub price'] || '',
+      'Recommendaed Price': row.PVP || '',
+      'Processing days': "--",
+      'Image1': imagePaths[0] || '',
+      'Image2': imagePaths[1] || '',
+      'Image3': imagePaths[2] || ''
     };
     
     mappedRows.push(newRowOutputFormat);

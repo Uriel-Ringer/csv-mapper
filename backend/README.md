@@ -66,3 +66,19 @@ routes/
 - `OPENAI_API_KEY` - Your OpenAI API key (required)
 - `PORT` - Server port (default: 3001)
 - `NODE_ENV` - Environment (development/production)
+
+## Future Enhancements
+
+## Testing
+
+Unit tests infrastructure have been prepared using Vitest framework to ensure code quality and maintainability.
+
+The test suite includes:
+- Unit tests for core mapping functionality
+- Product grouping and AI enrichment validation
+- Image processing and error handling
+- Integration tests for complete workflows
+
+### Image Analysis with OpenAI Vision
+
+The system can be extended to use **OpenAI Vision API (GPT-4o with OCR capabilities)** to extract product information directly from images.
