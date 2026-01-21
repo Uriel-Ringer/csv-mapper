@@ -81,49 +81,22 @@ Backend runs on http://localhost:3001
 - Vite
 - AG-Grid (table)
 
-## 📝 Adding New Suppliers
+## Future Enhancements
 
-Create config file in `backend/config/suppliers/{supplier}.json`:
+## Testing
 
-```json
-{
-  "name": "Supplier Name",
-  "columns": {
-    "REFERENCE": "reference",
-    "NAME": "name",
-    "PRICE": "wholesalePrice"
-  }
-}
-```
+Unit tests infrastructure have been prepared using Vitest framework to ensure code quality and maintainability.
 
-## 🤖 AI Fields
+The test suite includes:
+- Unit tests for core mapping functionality
+- Product grouping and AI enrichment validation
+- Image processing and error handling
+- Integration tests for complete workflows
 
-The system uses AI to infer:
-- Brand
-- Gender (Men/Women/Unisex/Kids)
-- Frame Shape (Rectangle/Aviator/etc.)
-- Collection
-- Description (condensed)
-- Color & Color Description
-- Season
-- Rim Type
-- Hinge Type
-- Frame Material
-- Dimensions (lens/bridge/temple)
+### Image Analysis with OpenAI Vision
 
-## 📦 Product Grouping
+The system can be extended to use **OpenAI Vision API (GPT-4o with OCR capabilities)** to extract product information directly from images.
 
-Products with consecutive references (8785.1, 8785.2, 8785.3) are treated as one family. 
-Missing data in variants is inherited from the first product in the group.
-
-## 📸 Image Handling
-
-- Downloads from Dropbox share links
-- Extracts ZIP archives automatically
-- Stores in `Downloads/product-images/{reference}/`
-- Returns full local paths in output
-
-## 📄 License
 
 Private project
 
